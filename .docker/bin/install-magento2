@@ -6,7 +6,7 @@ else
 fi
 chmod u+w -R ./var ./vendor ./pub/static ./pub/media ./app/etc \
 && chmod u+x ./bin/magento \
-&& php -f ./bin/magento setup:install --base-url=http://localhost/ \
+&& php -f ./bin/magento setup:install --base-url=http://localhost:9000/ \
     --db-host=db \
     --db-name=magento \
     --db-user=magento \
@@ -24,15 +24,15 @@ chmod u+w -R ./var ./vendor ./pub/static ./pub/media ./app/etc \
     --use-sample-data \
 && mv ./app/etc/env.php ./app/etc/env.original.php;
 cp -rv /var/www/env.sample.php ./app/etc/env.php;
-n98 cron:install;
-php -f ./bin/magento indexer:set-mode schedule;
+
 cp ~/.composer/auth.json var/composer_home/auth.json \
 && php -f ./bin/magento sampledata:deploy \
 && php -f ./bin/magento setup:upgrade \
 && php -f ./bin/magento indexer:reindex \
 && php -f ./bin/magento cache:flush;
-mv package.json.sample package.json ; mv Gruntfile.js.sample Gruntfile.js;
-npm i;
+
+# setup Cdek extension
+
 php -f ./bin/magento deploy:mode:set production \
 && composer dump-autoload -o \
 && clear && echo "
@@ -40,7 +40,7 @@ php -f ./bin/magento deploy:mode:set production \
 
       Magento 2 Installed successfully!
 
-      🌎 Admin: http://localhost/admin
+      🌎 Admin: http://localhost:9000/admin
       👤 User: admin
       🔑 Password: admin123
 

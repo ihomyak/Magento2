@@ -1,7 +1,7 @@
 version: '2'
 services:
   apache:
-    image: rafaelcgstz/magento2
+    image: ihomyak/magento2-ready
     # build: .
     ports:
       - "80:80" # web
