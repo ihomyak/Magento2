@@ -61,7 +61,8 @@ RUN composer global require hirak/prestissimo
 ENV PATH="/var/www/.composer/vendor/bin/:${PATH}"
 
 # Install Xdebug (but don't enable)
-RUN pecl install -o -f xdebug
+RUN yes | pecl install xdebug && \
+	 echo "zend_extension=$(find /usr/local/lib/php/extensions/ -name xdebug.so)" > /usr/local/etc/php/conf.d/xdebug.iniOLD
 
 # Install Mhsendmail
 

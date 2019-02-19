@@ -31,6 +31,8 @@ install-magento2
 
 You can specify the version that want install (e.g. `install-magento2 2.2`).
 
+fix error "Cron script readiness check failed"
+php bin/magento setup:cron:run
 
 **This project will be downgrade of PHP version to 7.0, for work with Magento 2.0 and Magento 2.2.6**
 
@@ -38,9 +40,9 @@ You can specify the version that want install (e.g. `install-magento2 2.2`).
 
 Enjoy your new panels!
 
-**Web server:** http://localhost:9000/
+**Web server:** http://localhost:9080/
 
-**PHPMyAdmin:** http://localhost:9080
+**PHPMyAdmin:** http://localhost:9090
 
 **Local emails:** http://localhost:9025
 

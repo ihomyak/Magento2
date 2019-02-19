@@ -4,8 +4,8 @@ services:
     image: ihomyak/magento2-ready
     # build: .
     ports:
-      - "80:80" # web
-      - "9001:9000" # xdebug
+      - 9080:80 # web
+      - 9001:9000 # xdebug
       # - "35729:35729" # live reload
     volumes:
       - ./src:/var/www/html
@@ -44,7 +44,7 @@ services:
      - PMA_PASSWORD=root
      - MYSQL_ROOT_PASSWORD=root
     ports:
-     - 8080:80
+     - 9090:80
     networks:
       - <project_name>-network
 
@@ -66,7 +66,7 @@ services:
     image: mailhog/mailhog
     ports:
       - 1025:1025
-      - 8025:8025
+      - 9025:8025
     networks:
       - <project_name>-network
 
