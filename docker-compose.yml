@@ -1,8 +1,8 @@
 version: '2'
 services:
   apache:
-    image: ihomyak/magento2-ready
-    # build: .
+#    image: ihomyak/magento2-ready
+    build: .
     ports:
       - 9080:80 # web
       - 9001:9000 # xdebug

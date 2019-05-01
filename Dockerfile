@@ -1,4 +1,4 @@
-FROM php:7.0-apache
+FROM php:7.2-apache
 
 MAINTAINER Viktor <vphomyak@gmail.com>
 
@@ -46,7 +46,6 @@ RUN docker-php-ext-install \
   	intl \
   	iconv \
   	mbstring \
-  	mcrypt \
   	pdo_mysql \
   	soap \
   	xsl \

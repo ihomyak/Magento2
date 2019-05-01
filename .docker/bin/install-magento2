@@ -27,7 +27,9 @@ cp -rv /var/www/env.sample.php ./app/etc/env.php;
 
 cp ~/.composer/auth.json var/composer_home/auth.json \
 && php -f ./bin/magento sampledata:deploy \
+&& composer require cdek/delivery \
 && php -f ./bin/magento setup:upgrade \
+&& php -f ./bin/magento setup:static-content:deploy -f \
 && php -f ./bin/magento indexer:reindex \
 && php -f ./bin/magento cache:flush;
 
