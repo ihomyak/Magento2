@@ -73,6 +73,10 @@ services:
 networks:
   <project_name>-network:
     driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 192.168.220.0/28
 
 volumes:
   dbdata:

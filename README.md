@@ -36,6 +36,16 @@ php bin/magento setup:cron:run
 
 **This project will be downgrade of PHP version to 7.0, for work with Magento 2.0 and Magento 2.2.6**
 
+Add tags for configurations to any versions of Magento2  
+
+### Xdebug
+Thanks for https://blog.denisbondar.com/post/phpstorm_docker_xdebug
+
+> Решение проблемы оказалось достаточно простым. Я просто создал общую сеть для бандла в docker-compose (192.168.220.0/28) и таким образом добился одинакового IP-адреса хоста (192.168.220.1) на всех машинах членов команды разработки.
+
+> Если Вы используете MacOS или Windows, то вместо адреса 192.168.220.1 Вам нужно будет указать host.docker.internal в приведенном ниже docker-compose.yml.
+
+
 ### Panels
 
 Enjoy your new panels!

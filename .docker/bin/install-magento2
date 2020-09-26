@@ -27,13 +27,31 @@ cp -rv /var/www/env.sample.php ./app/etc/env.php;
 
 cp ~/.composer/auth.json var/composer_home/auth.json \
 && php -f ./bin/magento sampledata:deploy \
-&& composer require cdek/delivery \
 && php -f ./bin/magento setup:upgrade \
+&& php -f ./bin/magento setup:di:compile \
 && php -f ./bin/magento setup:static-content:deploy -f \
 && php -f ./bin/magento indexer:reindex \
 && php -f ./bin/magento cache:flush;
 
 # setup Cdek extension
+# for testing
+#composer require cdek/delivery \
+#&& php -f ./bin/magento setup:upgrade \
+#&& php -f ./bin/magento setup:di:compile \
+#&& php -f ./bin/magento setup:static-content:deploy -f \
+#&& php -f ./bin/magento indexer:reindex \
+#&& php -f ./bin/magento cache:flush;
+
+# setup Cdek extension
+# for developing
+#mkdir ./app/code && mkdir ./app/code/Cdek && cd ./app/code/Cdek \
+#&& git clone {{OUR_REPO}} Delivery \
+#&& php -f ./bin/magento setup:upgrade \
+#&& php -f ./bin/magento setup:di:compile \
+#&& php -f ./bin/magento setup:static-content:deploy -f \
+#&& php -f ./bin/magento indexer:reindex \
+#&& php -f ./bin/magento cache:flush;
+
 
 #php -f ./bin/magento deploy:mode:set production \
 #&&
